@@ -1,3 +1,57 @@
+## English:
+
+# GitHub Actions + Azure Lab
+
+## Goal
+
+Create a GitHub Actions workflow that runs on every push and performs:
+
+1. Checkout of the code
+2. Setup of the environment (Node.js)
+3. Test
+4. Docker build
+
+The result can be checked in the **Actions** tab on GitHub.
+
+## Architecture
+
+### How a user reaches the application
+
+```mermaid
+flowchart TD
+    A[Internet] --> B[Azure Container App]
+    B --> C[Storage]
+    B --> D[Database]
+    B --> E[Key Vault]
+```
+
+### How the code reaches Azure
+
+```mermaid
+flowchart TD
+    G[GitHub] --> H[GitHub Actions]
+    H --> I[Docker]
+    I --> J[ACR]
+    J --> K[Azure]
+```
+
+## Components
+
+| Component | Purpose |
+|---|---|
+| Internet | Where users connect from |
+| Azure Container App | Runs the application in a container |
+| Storage | Stores files |
+| Database | Stores data |
+| Key Vault | Securely stores passwords and secrets |
+| GitHub | Hosts the source code |
+| GitHub Actions | Runs the workflow on every push |
+| Docker | Builds the application image |
+| ACR | Azure Container Registry, where Docker images are stored |
+| Azure | Runs the image pulled
+
+## ITALIANO:
+
 # Laboratorio GitHub Actions + Azure
 
 ## Obiettivo
